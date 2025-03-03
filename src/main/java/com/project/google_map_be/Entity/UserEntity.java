@@ -12,11 +12,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
-
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 @Entity
 public class UserEntity implements UserDetails {
 
@@ -44,4 +43,10 @@ public class UserEntity implements UserDetails {
     public boolean isAccountNonExpired() {
         return UserDetails.super.isAccountNonExpired();
     }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
 }
